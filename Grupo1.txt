@@ -1,0 +1,13 @@
+$listaProcesos = Get-Process
+$cantidadTotal = $listaProcesos.Count
+do {
+    $entrada = Read-Host "Ingrese un número entero limite"
+} while (-not [init]::TryParse($entrada,[ref]$limite))
+$condicion = ($cantidadTotal -gt $limite) -and ($limite -lt 500)
+if ($condicion) {
+    Hrite-Host "La condición se cumple: hay $cantidadTotal procesos y el limite $limite es menor que 500"
+}
+ else {
+       Write-Host "La condición NO se cumple: hay $cantidadTotal procesos o el limite $limite no es menor que 500"
+}
+ Write-Host "'nVersión actual de PowerShell: $($PSVersionTable.PSVersion)"
